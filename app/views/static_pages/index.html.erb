@@ -1,2 +1,68 @@
-<h1>StaticPages#index</h1>
-<p>Find me in app/views/static_pages/index.html.erb</p>
+<% provide(:title, "Home") %>
+<h1>わきあいアイクリニック</h1>
+<%= image_tag("top.jpg", width: "100%", alt: "Reception Pic") %>
+<p>
+  わきあいアイクリニックは、患者様の望む医療を提供できるよう努めております。
+  どうぞよろしくお願いいたします。
+</p>
+<h2>診療受付時間</h2>
+<table border="1" cellpadding="2" cellspacing="1">
+  <tr>
+    <th></th>
+    <th><%= (Time.zone.now.beginning_of_week - 1.day).strftime("%m/%d") %></th>
+    <th><%= Time.zone.now.beginning_of_week.strftime("%m/%d") %></th>
+    <th><%= (Time.zone.now.beginning_of_week + 1.day).strftime("%m/%d") %></th>
+    <th><%= (Time.zone.now.beginning_of_week + 2.day).strftime("%m/%d") %></th>
+    <th><%= (Time.zone.now.beginning_of_week + 3.day).strftime("%m/%d") %></th>
+    <th><%= (Time.zone.now.beginning_of_week + 4.day).strftime("%m/%d") %></th>
+    <th><%= (Time.zone.now.beginning_of_week + 5.day).strftime("%m/%d") %></th>
+  </tr>
+  <tr>
+    <td>診療時間</td>
+    <td>日</td>
+    <td>月</td>
+    <td>火</td>
+    <td>水</td>
+    <td>木</td>
+    <td>金</td>
+    <td>土</td>
+  </tr>
+  <tr>
+    <td>10:30 ~ 13:00</td>
+    <td>○</td>
+    <td>○</td>
+    <td>○</td>
+    <td>休</td>
+    <td>○</td>
+    <td>○</td>
+    <td>○</td>
+  </tr>
+  <tr>
+    <td>14:30 ~ 19:00</td>
+    <td>○</td>
+    <td>○</td>
+    <td>○</td>
+    <td>休</td>
+    <td>○</td>
+    <td>○</td>
+    <td>○</td>
+  </tr>
+</table>
+<p>受付時間</p>
+<p>午前は12:30まで</p>
+<p>午後は18:30まで</p>
+<p>休診日</p>
+<p>毎週水曜日</p>
+<h2>診療内容</h2>
+<p>
+  眼科一般, 眼精疲労, ドライアイ, 花粉症, 学校検診, アレルギー性結膜炎,
+  ものもらい, 結膜炎, コンタクトレンズ処方, メガネの処方
+</p>
+<h2>院長紹介</h2>
+<p>院長 座浜白男</p>
+<p>東西南北大学医学部卒</p>
+<h2>アクセス</h2>
+<p>000-0000 東京都西南西市</p>
+<%= image_tag("map.jpg", alt: "Map Pic") %>
+
+<p>予約する</p>
