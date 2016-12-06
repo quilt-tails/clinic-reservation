@@ -1,0 +1,38 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  text-align: center;
+  color: #545454;
+}
+
+/* image */
+.config {
+  margin: auto;
+}
+
+/* heading */
+.sub-title {
+  background: #bcee66;
+  padding: 10px 0;
+}
+
+.title-color {
+  color: #b4b4b4;
+}
+
+.explanation {
+  /*text-align: left;*/
+}
+
+/* link-button */
+.reserve {
+  background: #d65c9a;
+  color: #fff;
+  padding: 10px 0;
+}
+
+/* table */
+.table-head {
+  text-align: center;
+}
