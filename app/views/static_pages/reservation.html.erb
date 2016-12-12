@@ -1,4 +1,4 @@
-<% provide(:title, "Home") %>
+<% provide(:title, "Reservation") %>
 <div class="container-fluid">
   <div class="col-sm-offset-2 col-sm-8 col-sm-offset-2">
     <div class="top">
@@ -6,13 +6,9 @@
       <h3 class="clinic-name title-color">わきあいアイクリニック</h1>
     </div>
     <p class="explanation">
-      わきあいアイクリニックは、患者様の望む医療を提供できるよう努めております。
-      どうぞよろしくお願いいたします。
+      本クリニックは予約制となっております。Web登録してご予約ください。
     </p>
-    <p>
-      本クリニックは予約制となっております。
-    </p>
-    <%= link_to "ご予約", reservation_path, class: "btn btn-default btn-lg btn-block reserve" %>
+    <%= link_to "新規登録", signup_path, class: "btn btn-default btn-lg btn-block" %>
     <h3 class="sub-title">診療受付時間</h2>
     <!--<div class="table-responsive">-->
       <table class="table table-bordered">
@@ -78,19 +74,5 @@
       <p>休診日</p>
       <p>毎週水曜日</p>
     </div>
-    
-    <h3 class="sub-title">診療内容</h2>
-      <p class="explanation">
-        眼科一般, 眼精疲労, ドライアイ, 花粉症, 学校検診, アレルギー性結膜炎,
-        ものもらい, 結膜炎, コンタクトレンズ処方, メガネの処方
-      </p>
-    <h3 class="sub-title">院長紹介</h2>
-      <p>院長 座浜白男</p>
-      <p>東西南北大学医学部卒</p>
-    <h3 class="sub-title">アクセス</h2>
-      <p>〒000-0000 東京都西南西市小山1-234-5</p>
-      <%= image_tag("map.jpg", alt: "Map Pic", class: "img-responsive config") %>
-    <br>
-    <%= link_to "ご予約", reservation_path, class: "btn btn-default btn-lg btn-block reserve" %>
    </div>
 </div>
