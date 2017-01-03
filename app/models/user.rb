@@ -30,9 +30,16 @@ class User < ActiveRecord::Base
   end
   
   # 渡されたトークンがダイジェストと一致したらtrueを返す
-  def authenticated?(remember_token)
-    return false if remember_digest.nil?
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  #def authenticated?(remember_token)
+  #  return false if remember_digest.nil?
+  #  BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  #end
+  
+  # トークンがダイジェストと一致したらtrueを返す
+  def authenticated?(attribute, token)
+    digest = send("#{attribute}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
   end
   
   # ユーザーログインを破棄する
@@ -40,6 +47,17 @@ class User < ActiveRecord::Base
     update_attribute(:remember_digest, nil)
   end
   
+  # アカウントを有効化する
+  def activate
+    update_attribute(:activated, true)
+    update_attribute(:activated_at, Time.zone.now)
+  end
+  
+  # 有効化用のメールを送信する
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
+  end
+
   private
   
     # メールアドレスをすべて小文字にする
