@@ -16,25 +16,17 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert flash.empty?
   end
   
-  test "login with valid information" do
-    get login_path
-    post login_path, session: { email: @user.email, password: 'password' }
-    assert_redirected_to reservation_url
-    follow_redirect!
-    assert_template 'static_pages/reservation'
-    assert_select "a[href=?]", login_path, count: 0
-    assert_select "a[href=?]", logout_path
-  end
-  
   test "login with valid information followed by logout" do
     get login_path
     post login_path, session: { email: @user.email, password: 'password' }
-    assert is_logged_in?
-    assert_redirected_to reservation_url
+    
+    assert_redirected_to root_url
     follow_redirect!
-    assert_template 'static_pages/reservation'
+    assert_template 'static_pages/index'
     assert_select "a[href=?]", login_path, count: 0
-    assert_select "a[href=?]", logout_path
+    assert_select "a[href=?]", logout_path, count: 0
+    assert is_logged_in?
+    
     delete logout_path
     assert_not is_logged_in?
     assert_redirected_to root_url
