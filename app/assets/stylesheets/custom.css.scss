@@ -17,10 +17,28 @@ body {
   color: #545454;
 }
 
+/* header-navbar */
+.navbar {
+    position: relative;
+}
+.navbar-brand {
+    position: absolute;
+    width: 100%;
+    display: block;
+}
+
+#panel-btn {
+  font-size: 10px;
+}
+
 /* image */
-.config {
+.reception-pic-config {
+  margin: -20px auto 0;
+}
+.map-config {
   margin: auto;
 }
+
 
 /* heading */
 .sub-title {
@@ -59,6 +77,10 @@ body {
 }
 
 /* forms */
+
+input {
+  margin-bottom: 10px;
+}
 
 #error_explanation {
   color: red;

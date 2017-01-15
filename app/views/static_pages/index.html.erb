@@ -1,99 +1,96 @@
 <% provide(:title, "Home") %>
 <div class="container-fluid">
-  <div class="col-sm-offset-2 col-sm-8 col-sm-offset-2">
-    <div class="top">
-      <%= image_tag("top.jpg", alt: "Reception Pic", class: "img-responsive config") %>
-      <h3 class="clinic-name title-color">わきあいアイクリニック</h1>
-    </div>
-    <p class="explanation">
-      わきあいアイクリニックは、患者様の望む医療を提供できるよう努めております。
-      どうぞよろしくお願いいたします。
-    </p>
-    <p>
-      本クリニックは予約制となっております。
-    </p>
-    <% if logged_in? %>
-      <%= link_to "Users", users_path %>
-    <% end %>
-    <%= link_to "ご予約", reservation_path, class: "btn btn-default btn-lg btn-block reserve" %>
-    <h3 class="sub-title">診療受付時間</h2>
-    <!--<div class="table-responsive">-->
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th></th>
-            <th class="table-head">診療時間</th>
-            <th class="table-head">10:30 ~ 13:00</th>
-            <th class="table-head">14:30 ~ 19:00</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><%= Time.zone.now.beginning_of_week.strftime("%m/%d") %></td>
-            <td>月</td>
-            <td>○</td>
-            <td>○</td>
-          </tr>
-          <tr>
-            <td><%= (Time.zone.now.beginning_of_week + 1.day).strftime("%m/%d") %></td>
-            <td>火</td>
-            <td>○</td>
-            <td>○</td>
-          </tr>
-          <tr>
-            <td><%= (Time.zone.now.beginning_of_week + 2.day).strftime("%m/%d") %></td>
-            <td>水</td>
-            <td>休</td>
-            <td>休</td>
-          </tr>
-          <tr>
-            <td><%= (Time.zone.now.beginning_of_week + 3.day).strftime("%m/%d") %></td>
-            <td>木</td>
-            <td>○</td>
-            <td>○</td>
-          </tr>
-          <tr>
-            <td><%= (Time.zone.now.beginning_of_week + 4.day).strftime("%m/%d") %></td>
-            <td>金</td>
-            <td>○</td>
-            <td>○</td>
-          </tr>
-          <tr>
-            <td><%= (Time.zone.now.beginning_of_week + 5.day).strftime("%m/%d") %></td>
-            <td>土</td>
-            <td>○</td>
-            <td>○</td>
-          </tr>
-          <tr>
-            <td><%= (Time.zone.now.beginning_of_week + 6.day).strftime("%m/%d") %></td>
-            <td>日</td>
-            <td>○</td>
-            <td>○</td>
-          </tr>
-        </tbody>
-      </table>
-    <!--</div>-->
+  <div class="top">
+    <%= image_tag("top.jpg", alt: "Reception Pic", class: "img-responsive reception-pic-config") %>
+  </div>
+  <p class="explanation">
+    わきあいアイクリニックは、患者様の望む医療を提供できるよう努めております。
+    どうぞよろしくお願いいたします。
+  </p>
+  <p>
+    本クリニックは予約制となっております。
+  </p>
+  <% if logged_in? %>
+    <%= link_to "Users", users_path %>
+  <% end %>
+  <%= link_to "ご予約", reservation_path, class: "btn btn-default btn-lg btn-block reserve" %>
+  <h3 class="sub-title">診療受付時間</h2>
+  <!--<div class="table-responsive">-->
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="table-head">診療時間</th>
+          <th class="table-head">10:30 ~ 13:00</th>
+          <th class="table-head">14:30 ~ 19:00</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= Time.zone.now.beginning_of_week.strftime("%m/%d") %></td>
+          <td>月</td>
+          <td>○</td>
+          <td>○</td>
+        </tr>
+        <tr>
+          <td><%= (Time.zone.now.beginning_of_week + 1.day).strftime("%m/%d") %></td>
+          <td>火</td>
+          <td>○</td>
+          <td>○</td>
+        </tr>
+        <tr>
+          <td><%= (Time.zone.now.beginning_of_week + 2.day).strftime("%m/%d") %></td>
+          <td>水</td>
+          <td>休</td>
+          <td>休</td>
+        </tr>
+        <tr>
+          <td><%= (Time.zone.now.beginning_of_week + 3.day).strftime("%m/%d") %></td>
+          <td>木</td>
+          <td>○</td>
+          <td>○</td>
+        </tr>
+        <tr>
+          <td><%= (Time.zone.now.beginning_of_week + 4.day).strftime("%m/%d") %></td>
+          <td>金</td>
+          <td>○</td>
+          <td>○</td>
+        </tr>
+        <tr>
+          <td><%= (Time.zone.now.beginning_of_week + 5.day).strftime("%m/%d") %></td>
+          <td>土</td>
+          <td>○</td>
+          <td>○</td>
+        </tr>
+        <tr>
+          <td><%= (Time.zone.now.beginning_of_week + 6.day).strftime("%m/%d") %></td>
+          <td>日</td>
+          <td>○</td>
+          <td>○</td>
+        </tr>
+      </tbody>
+    </table>
+  <!--</div>-->
 
-    <div class="explanation">
-      <p>受付時間</p>
-      <p>午前は12:30まで</p>
-      <p>午後は18:30まで</p>
-      <p>休診日</p>
-      <p>毎週水曜日</p>
-    </div>
-    
-    <h3 class="sub-title">診療内容</h2>
-      <p class="explanation">
-        眼科一般, 眼精疲労, ドライアイ, 花粉症, 学校検診, アレルギー性結膜炎,
-        ものもらい, 結膜炎, コンタクトレンズ処方, メガネの処方
-      </p>
-    <h3 class="sub-title">院長紹介</h2>
-      <p>院長 座浜白男</p>
-      <p>東西南北大学医学部卒</p>
-    <h3 class="sub-title">アクセス</h2>
-      <p>〒000-0000 東京都西南西市小山1-234-5</p>
-      <%= image_tag("map.jpg", alt: "Map Pic", class: "img-responsive config") %>
-    <br>
-    <%= link_to "ご予約", reservation_path, class: "btn btn-default btn-lg btn-block reserve" %>
-   </div>
+  <div class="explanation">
+    <p>受付時間</p>
+    <p>午前は12:30まで</p>
+    <p>午後は18:30まで</p>
+    <p>休診日</p>
+    <p>毎週水曜日</p>
+  </div>
+  
+  <h3 class="sub-title">診療内容</h2>
+    <p class="explanation">
+      眼科一般, 眼精疲労, ドライアイ, 花粉症, 学校検診, アレルギー性結膜炎,
+      ものもらい, 結膜炎, コンタクトレンズ処方, メガネの処方
+    </p>
+  <h3 class="sub-title">院長紹介</h2>
+    <p>院長 座浜白男</p>
+    <p>東西南北大学医学部卒</p>
+  <h3 class="sub-title">アクセス</h2>
+    <p>〒000-0000 東京都西南西市小山1-234-5</p>
+    <%= image_tag("map.jpg", alt: "Map Pic", class: "img-responsive map-config") %>
+  <br>
+  <%= link_to "ご予約", reservation_path, class: "btn btn-default btn-lg btn-block reserve" %>
 </div>
